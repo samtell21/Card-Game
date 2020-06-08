@@ -19,6 +19,9 @@ public class Deck{
 	
 	public Card drawRand() throws OverdrawnException{
 		Random r = new Random();
+		//the exception is thrown when r tries to get nextInt on deck.size()=0
+		//looking at it now, I should just use an if-else
+		//TODO
 		try{
 			int i = r.nextInt(deck.size());
 			Card c = deck.remove(i);

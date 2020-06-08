@@ -1,5 +1,4 @@
-package card.game;
-
+package bj;
 import card_games.Cancel;
 import card_games.Deck;
 import card_games.Hand2;
