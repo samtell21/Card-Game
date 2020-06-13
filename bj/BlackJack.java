@@ -1,9 +1,5 @@
 package bj;
-import card_games.Cancel;
-import card_games.Deck;
-import card_games.Hand2;
-import card_games.OverdrawnException;
-import card_games.WTF;
+import card_games.*;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import java.io.FileReader;
@@ -17,8 +13,12 @@ public class BlackJack
 {
 	public static void main(String[] args)
 	{
+        Jop j = new Jop();
+        Object[] dexnums = {1,2,3,4,5};
+        int dex = (Integer) dexnums[j.capturedMessageDialog("how many decks????????????????", null, dexnums)];
+        System.out.println(dex);
 		try{
-			BlackJack bj= new BlackJack();
+			BlackJack bj= new BlackJack(dex);
 			String a;
 			int xx;
 			boolean b = false;
@@ -76,10 +76,35 @@ public class BlackJack
 				{ops[2]},						//6: Stay
 				{ops[0]}						//7: OK
 		};
-	
+	/*
 	public BlackJack() throws Exception{
 		hh = new LinkedList<>();
 		deck = new Deck();
+		try{
+			br = new BufferedReader(new FileReader(name));
+			m = Integer.parseInt(br.readLine());
+			br.close();
+		}
+		catch(IOException e){
+			System.out.println("File not Found");
+		}
+		catch(NumberFormatException er){
+			System.out.println("Number Format Exception");
+		}
+	}
+	/**/
+	public BlackJack(int n) throws Exception{
+		init(n);
+	}
+	
+	public BlackJack() throws Exception{
+        init(1);
+	}
+	/**/
+	
+	private void init(int n) throws Exception{
+        hh = new LinkedList<>();
+		deck = new Multideck(n);
 		try{
 			br = new BufferedReader(new FileReader(name));
 			m = Integer.parseInt(br.readLine());

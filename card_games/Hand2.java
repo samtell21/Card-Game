@@ -66,6 +66,8 @@ public class Hand2{
 				m.add(x);
 		}
 		if(m.isEmpty())
+		//jezus what is with this use of exceptions for flow control??
+		//TODO
 			throw new Exception("All are bust!");
 		int x = m.get(0);
 		for(int i=1;i<m.size();i++)

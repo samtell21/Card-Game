@@ -4,9 +4,9 @@ import java.util.LinkedList;
 import java.util.Random;
 
 public class Deck{
-	private LinkedList<Card> deck;
-	private LinkedList<Card> table;
-	private LinkedList<Card> burn;
+	protected LinkedList<Card> deck;
+	protected LinkedList<Card> table;
+	protected LinkedList<Card> burn;
 	
 	public Deck() throws Exception{
 		deck = new LinkedList<>();
@@ -37,7 +37,7 @@ public class Deck{
 		}
 	}
 	
-	private void swap(){
+	protected void swap(){
 		LinkedList<Card> t = deck;
 		deck = burn;
 		burn = t;
